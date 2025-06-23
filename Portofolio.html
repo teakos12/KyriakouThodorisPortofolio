@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RETROARCADE PORTFOLIO - Graphic Design</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Press Start 2P for retro pixel look, Inter for readability -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Styling for Retro Arcade Vibe (1990s Arcade Space) */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a2e; /* Dark background for sections */
+            color: #ecf0f1; /* Light text color */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Press Start 2P', cursive;
+            color: #FFD700; /* Gold/Yellow for main titles */
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.8), 0 0 15px rgba(255, 165, 0, 0.6); /* Gold/Orange glow */
+        }
+        .text-arcade-blue {
+            color: #00BFFF; /* Deep Sky Blue */
+            text-shadow: 0 0 6px rgba(0, 191, 255, 0.7);
+        }
+        .text-arcade-pink {
+            color: #FF1493; /* Deep Pink */
+            text-shadow: 0 0 6px rgba(255, 20, 147, 0.7);
+        }
+        .text-arcade-green {
+            color: #39FF14; /* Neon Green */
+            text-shadow: 0 0 6px rgba(57, 255, 20, 0.7);
+        }
+        .text-arcade-purple {
+            color: #9932CC; /* Dark Orchid */
+            text-shadow: 0 0 6px rgba(153, 50, 204, 0.7);
+        }
+        .text-arcade-yellow {
+            color: #FFD700; /* Gold/Yellow for main titles */
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+        }
+
+        /* Header/Arcade Machine Intro Section */
+        #home {
+            /* Η εικόνα του περιβάλλοντος arcade ως γενικό φόντο */
+            background-image: url('https://storage.googleapis.com/gemini-generations/uploaded:StockCake-Neon Arcade Glow_1750615617.jpg-15d8ac6e-1116-45ce-987e-1874a1d201f4');
+            background-size: cover; /* Καλύπτει ολόκληρο το τμήμα */
+            background-repeat: no-repeat;
+            background-position: center center; /* Κεντράρουμε την εικόνα */
+            position: relative;
+            z-index: 0;
+            overflow: hidden;
+            min-height: 100vh; /* Πλήρες ύψος viewport */
+            display: flex;
+            align-items: center; /* Κεντράρισμα περιεχομένου κάθετα */
+            justify-content: center; /* Κεντράρισμα περιεχομένου οριζόντια */
+            flex-direction: column;
+            background-color: #1a1a2e; /* Εφεδρικό χρώμα φόντου */
+        }
+
+        /* Arcade Screen Container for Text Overlay - ΤΟΠΟΘΕΤΕΙΤΑΙ ΠΑΝΩ ΣΤΗΝ ΟΘΟΝΗ ΤΗΣ ΕΙΚΟΝΑΣ */
+        .arcade-screen-overlay-container {
+            position: absolute; /* Απόλυτη θέση μέσα στο #home */
+            /* --- ΠΡΟΣΑΡΜΟΣΜΕΝΕΣ ΤΙΜΕΣ ΓΙΑ ΤΟ ΜΕΓΑΛΥΤΕΡΟ ΠΛΑΙΣΙΟ --- */
+            /* Αυτές οι τιμές έχουν ρυθμιστεί για να καλύψουν το μεγαλύτερο μέρος
+               της οθόνης, όπως δείχνει το κόκκινο πλαίσιο.
+               Εδώ θα χρειαστεί να κάνετε μικρο-ρυθμίσεις με F12 για τέλεια ευθυγράμμιση. */
+            top: 50%; /* Κεντράρισμα top */
+            left: 50%; /* Κεντράρισμα οριζόντια */
+            transform: translate(-50%, -50%); /* Συμπληρωματικό κεντράρισμα (οριζόντιο και κάθετο) */
+            width: 95%; /* Σχεδόν πλήρες πλάτος οθόνης, όπως το κόκκινο πλαίσιο */
+            height: 90%; /* Σχεδόν πλήρες ύψος οθόνης, όπως το κόκκινο πλαίσιο */
+            /* ---------------------------------------------------------------------- */
+
+            /* ΝΕΟ ΦΟΝΤΟ ΓΙΑ ΤΗΝ ΟΘΟΝΗ (Artboard 1.jpg) */
+            background-image: url('https://storage.googleapis.com/gemini-generations/uploaded:Artboard 1.jpg-0a8be26e-6828-427c-9a38-ed94eb3886ba'); /* Το URL της δεύτερης εικόνας σας */
+            background-size: cover; /* Καλύπτει ολόκληρη την οθόνη */
+            background-position: center center; /* Κεντράρει το φόντο */
+            background-color: rgba(0, 0, 0, 0.8); /* Σκούρο overlay για προσομοίωση οθόνης */
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 0, 150, 0.7);
+            filter: brightness(1.3) contrast(1.1);
+        }
+
+        /* Inner content for the arcade screen container */
+        .arcade-screen-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        /* Scanlines and flicker for screen overlay */
+        .arcade-screen-overlay-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 49%, rgba(0, 0, 0, 0.25) 50%, transparent 51%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 1;
+            animation: flicker 0.15s infinite alternate;
+        }
+        @keyframes flicker {
+            0% { opacity: 0.95; }
+            100% { opacity: 1; }
+        }
+
+        /* Text on arcade screen */
+        .arcade-screen-text {
+            font-family: 'Press Start 2P', cursive;
+            color: #39FF14; /* Neon Green text */
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.9);
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: marquee 8s linear infinite;
+            position: relative;
+            font-size: clamp(1.5rem, 5vw, 4rem);
+        }
+
+        @keyframes marquee {
+            0%   { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .arcade-name-text {
+            font-family: 'Press Start 2P', cursive;
+            color: #FFD700; /* Gold text */
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+            text-align: center;
+            margin-top: 0.5rem;
+            position: relative;
+            font-size: clamp(0.8rem, 2vw, 1.5rem);
+            opacity: 0.9;
+        }
+
+        /* Navigation Buttons */
+        .nav-button {
+            background-color: #555555; /* Darker grey */
+            border: 3px solid #777;
+            border-bottom: 3px solid #222;
+            border-right: 3px solid #222;
+            padding: 0.8rem 1.8rem; /* Larger buttons */
+            font-family: 'Press Start 2P', cursive;
+            color: #FFD700; /* Gold text */
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.6);
+            transition: all 0.1s ease-in-out;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+            transform: skew(-8deg); /* Slightly less skew */
+            border-radius: 6px; /* Slightly rounded */
+        }
+        .nav-button:hover {
+            background-color: #6a6a6a;
+            color: #FF1493; /* Pink on hover */
+            text-shadow: 0 0 8px rgba(255, 20, 147, 0.9);
+            transform: skew(-8deg) scale(1.06);
+        }
+        .nav-button:active {
+            border-bottom: 3px solid #777;
+            border-right: 3px solid #777;
+            border-top: 3px solid #222;
+            border-left: 3px solid #222;
+            transform: skew(-8deg) translateY(3px);
+            box-shadow: 0 3px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        /* General Section Styling */
+        section {
+            padding: 5rem 1.5rem; /* More padding */
+            margin: 0 auto;
+            max-width: 1200px;
+            background-color: #1a1a2e; /* Consistent dark background */
+        }
+        .section-header {
+            background-color: #000066; /* Darker blue header for sections */
+            color: white;
+            padding: 1.2rem 2.5rem; /* Larger padding */
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.7rem; /* Larger font */
+            text-align: center;
+            margin-bottom: 4rem; /* More spacing */
+            border: 3px solid #00BFFF; /* Teal border */
+            border-radius: 10px; /* More rounded */
+            box-shadow: 7px 7px 0 rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 191, 255, 0.5); /* Stronger shadow and blue glow */
+        }
+
+        /* ΝΕΑ ΚΛΑΣΗ ΓΙΑ ΤΟ ΚΕΙΜΕΝΟ ΣΧΕΤΙΚΑ ΜΕ ΕΜΕΝΑ */
+        .about-me-text-font {
+            font-family: 'Press Start 2P', cursive; /* Εφαρμόζει τη γραμματοσειρά Press Start 2P */
+            font-size: 0.85rem; /* Μικρότερο μέγεθος για να είναι αναγνώσιμο */
+            line-height: 1.6; /* Καλύτερη απόσταση γραμμών */
+        }
+
+        /* Project Card Styling */
+        .project-card {
+            background-color: #2c3e50; /* Slightly lighter dark blue for cards */
+            border: 2px solid #5a5a5a;
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-radius: 8px; /* Rounded corners */
+        }
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.5); /* Stronger shadow and gold glow on hover */
+        }
+        .project-card img {
+            border-bottom: 2px solid #5a5a5a;
+            border-radius: 6px 6px 0 0; /* Rounded top corners */
+        }
+
+        /* Retro Button for Project Details */
+        .retro-button {
+            background-color: #FF1493; /* Deep Pink */
+            color: #fff;
+            font-family: 'Press Start 2P', cursive;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #FFD700; /* Gold border */
+            border-radius: 5px;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6);
+            transition: all 0.1s ease-in-out;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        .retro-button:hover {
+            background-color: #FF4500; /* Orange-red on hover */
+            transform: translateY(-2px);
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        .retro-button:active {
+            transform: translateY(2px);
+            box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: #FFD700; /* Gold text */
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
+            padding: 2.5rem; /* More padding */
+            text-align: center;
+            border-top: 3px solid #FFD700; /* Gold border */
+        }
+
+        /* Social Icons - Hover effect */
+        .social-icon:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 8px #00BFFF);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            #home {
+                background-position: center center;
+                background-size: contain;
+            }
+            .arcade-screen-overlay-container {
+                width: 95%; /* Μεγαλύτερο πλάτος για μικρές οθόνες */
+                height: 90%; /* Μεγαλύτερο ύψος για μικρές οθόνες */
+                top: 50%; /* Κεντράρισμα */
+                transform: translate(-50%, -50%); /* Κεντράρισμα */
+            }
+            .arcade-screen-text {
+                font-size: clamp(1rem, 4vw, 2.5rem);
+            }
+            .arcade-name-text {
+                font-size: clamp(0.6rem, 1.5vw, 1rem);
+            }
+            .nav-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
+                transform: skew(-5deg);
+            }
+            .section-header {
+                font-size: 1.2rem;
+                padding: 1rem 1.5rem;
+            }
+            .project-card {
+                padding: 1.5rem;
+            }
+            .about-me-text-font { /* Προσαρμογή μεγέθους γραμματοσειράς για μικρές οθόνες */
+                font-size: 0.7rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .arcade-screen-overlay-container {
+                width: 98%; /* Ακόμα μεγαλύτερο πλάτος για πολύ μικρές οθόνες */
+                height: 95%; /* Ακόμα μεγαλύτερο ύψος για πολύ μικρές οθύνες */
+                top: 50%; /* Κεντράρισμα */
+                transform: translate(-50%, -50%); /* Κεντράρισμα */
+            }
+            .about-me-text-font { /* Προσαρμογή μεγέθους γραμματοσειράς για πολύ μικρές οθύνες */
+                font-size: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Arcade Machine Intro -->
+    <header id="home" class="relative flex items-center justify-center min-h-screen">
+        <div class="arcade-screen-overlay-container z-10">
+            <div class="arcade-screen-inner">
+                <h1 class="arcade-screen-text text-5xl md:text-7xl">PORTFOLIO</h1>
+                <!-- Loading Bar -->
+                <div class="w-2/3 h-2 bg-red-600 rounded-full my-2 animate-pulse" style="box-shadow: 0 0 8px rgba(255,0,0,0.7);"></div>
+                <p class="arcade-name-text text-xl md:text-2xl">THODORIS KYRIAKOU</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-gray-900 py-4 shadow-xl">
+        <div class="container mx-auto flex flex-wrap justify-center gap-4">
+            <a href="#about" class="nav-button rounded-lg">ΣΧΕΤΙΚΑ</a>
+            <a href="#portfolio" class="nav-button rounded-lg">ΕΡΓΑ</a>
+            <a href="#services" class="nav-button rounded-lg">ΥΠΗΡΕΣΙΕΣ</a>
+            <a href="#testimonials" class="nav-button rounded-lg">ΜΑΡΤΥΡΙΕΣ</a>
+            <a href="#contact" class="nav-button rounded-lg">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">ΣΧΕΤΙΚΑ ΜΕ ΕΜΕΝΑ</div>
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg">
+            <p class="text-lg leading-relaxed mb-6 about-me-text-font">
+                Γεια σας! Είμαι ο Θοδωρής Κυριακού, ένας 28χρονος γραφίστας με πάθος για τη δημιουργία οπτικών εμπειριών που αφηγούνται μοναδικές ιστορίες. Αντλώντας έμπνευση από τη δυναμική ενέργεια του ρετρό gaming και τις σύγχρονες τάσεις του design, συνδυάζω μια νοσταλγική αισθητική με καινοτόμες ιδέες.
+
+                Αν και το στυλ μου χαρακτηρίζεται από ζωντανά χρώματα και έντονη ατμόσφαιρα, με εκφράζουν ιδιαίτερα τα πιο σκοτεινά, ατμοσφαιρικά σχέδια. Με ένα χρόνο εντατικής εμπειρίας στον απαιτητικό χώρο της φλεξογραφίας, έχω αναπτύξει ακρίτσια, προσοχή στη λεπτομέρεια και την ικανότητα να μετατρέπω σύνθετες ιδέες σε εντυπωσιακά οπτικά αποτελέσματα.
+            </p>
+            <p class="text-lg leading-relaxed about-me-text-font">
+                Ο στόχος μου είναι να εξελιχθώ στον κόσμο του UI/UX, δημιουργώντας διεπαφές που δεν είναι απλά όμορφες, αλλά και διαισθητικές και αποτελεσματικές. Κάθε project είναι για εμένα μια ευκαιρία για εξερεύνηση, καινοτομία και δημιουργική έκφραση, με γνώμονα πάντα την παροχή μοναδικών λύσεων που ξεχωρίζουν.
+
+                Είμαι έτοιμος να αντιμετωπίσω νέες προκλήσεις και να μετατρέψω τις ιδέες σας σε εκθαμβωτική οπτική πραγματικότητα!
+            </p>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="section-header">ΤΑ ΕΡΓΑ ΜΟΥ</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <div class="project-card rounded-lg overflow-hidden p-4">
+                <img src="https://storage.googleapis.com/gemini-generations/image-5231e3d3-7d72-4752-b883-93d395781a7d.png" alt="Retro Branding Project" class="w-full h-48 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-bold mb-2 text-arcade-pink">Ρετρό Branding</h3>
+                <p class="text-gray-400 text-sm mb-4">Σχεδιασμός εταιρικής ταυτότητας με έμπνευση από τη δεκαετία του '90.</p>
+                <button class="retro-button w-full">Προβολή Λεπτομερειών</button>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card rounded-lg overflow-hidden p-4">
+                <img src="https://storage.googleapis.com/gemini-generations/image-72314545-0d85-4b35-86f3-39df8f237f37.png" alt="Pixel Art Illustration" class="w-full h-48 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-bold mb-2 text-arcade-blue">Εικονογράφηση Pixel Art</h3>
+                <p class="text-gray-400 text-sm mb-4">Δημιουργία εικονογραφήσεων σε στυλ pixel art για παιχνίδια ή εφαρμογές.</p>
+                <button class="retro-button w-full">Προβολή Λεπτομερειών</button>
+            </div>
+            <!-- Project 3 -->
+            <div class="project-card rounded-lg overflow-hidden p-4">
+                <img src="https://storage.googleapis.com/gemini-generations/image-bb123611-cf0b-47e0-946e-1d54e4604d70.png" alt="Website UI/UX Design" class="w-full h-48 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-bold mb-2 text-arcade-yellow">UI/UX Σχεδιασμός</h3>
+                <p class="text-gray-400 text-sm mb-4">Σχεδιασμός φιλικού προς τον χρήστη interface για ψηφιακές πλατφόρμες.</p>
+                <button class="retro-button w-full">Προβολή Λεπτομερειών</button>
+            </div>
+            <!-- Project 4 -->
+            <div class="project-card rounded-lg overflow-hidden p-4">
+                <img src="https://storage.googleapis.com/gemini-generations/image-c0529d18-8f85-48b0-8c29-87a32997b693.png" alt="Album Cover Design" class="w-full h-48 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-bold mb-2 text-arcade-green">Σχεδιασμός Άλμπουμ</h3>
+                <p class="text-gray-400 text-sm mb-4">Εντυπωσιακό εξώφυλλο για synthwave/retro άλμπουμ με έντονα χρώματα.</p>
+                <button class="retro-button w-full">Προβολή Λεπτομερειών</button>
+            </div>
+            <!-- Project 5 -->
+            <div class="project-card rounded-lg overflow-hidden p-4">
+                <img src="https://storage.googleapis.com/gemini-generations/image-7649d217-063a-44c1-840a-c189b27670cb.png" alt="Social Media Graphics" class="w-full h-48 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-bold mb-2 text-arcade-purple">Γραφικά Social Media</h3>
+                <p class="text-gray-400 text-sm mb-4">Δημιουργία δυναμικών γραφικών για καμπάνιες στα μέσα κοινωνικής δικτύωσης.</p>
+                <button class="retro-button w-full">Προβολή Λεπτομερειών</button>
+            </div>
+            <!-- Project 6 -->
+            <div class="project-card rounded-lg overflow-hidden p-4">
+                <img src="https://storage.googleapis.com/gemini-generations/image-b8512dd9-34b6-455b-b99b-001c25528994.png" alt="Game Character Design" class="w-full h-48 object-cover mb-4 rounded-md">
+                <h3 class="text-xl font-bold mb-2 text-arcade-pink">Σχεδιασμός Χαρακτήρων</h3>
+                <p class="text-gray-400 text-sm mb-4">Πρωτότυπος σχεδιασμός χαρακτήρων παιχνιδιών με pixel art στυλ.</p>
+                <button class="retro-button w-full">Προβολή Λεπτομερειών</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="section-header">ΟΙ ΥΠΗΡΕΣΙΕΣ ΜΟΥ</div>
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg">
+            <ul class="list-disc list-inside text-lg text-gray-300">
+                <li class="mb-2">
+                    <strong class="text-arcade-yellow">Εταιρική Ταυτότητα & Branding:</strong> Δημιουργία λογοτύπων, στυλιστικών οδηγών, και ολοκληρωμένων εταιρικών ταυτοτήτων που ξεχωρίζουν.
+                </li>
+                <li class="mb-2">
+                    <strong class="text-arcade-pink">Σχεδιασμός Εκτυπώσεων:</strong> Αφίσες, φυλλάδια, κάρτες, περιοδικά και κάθε είδους έντυπο υλικό με εντυπωσιακό design.
+                </li>
+                <li class="mb-2">
+                    <strong class="text-arcade-blue">UI/UX & Web Graphics:</strong> Σχεδιασμός user interfaces για ιστοσελίδες/εφαρμογές, web banners και γραφικά για ψηφιακές πλατφόρμες.
+                </li>
+                <li class="mb-2">
+                    <strong class="text-arcade-yellow">Εικονογράφηση:</strong> Πρωτότυπες εικονογραφήσεις σε διάφορα στυλ, από pixel art μέχρι πιο λεπτομερή σχέδια.
+                </li>
+                <li class="mb-2">
+                    <strong class="text-arcade-pink">Σχεδιασμός Συσκευασίας:</strong> Δημιουργία μοναδικών και λειτουργικών συσκευασιών προϊόντων.
+                </li>
+                <li class="mb-2">
+                    <strong class="text-arcade-blue">Γραφικά Social Media:</strong> Εντυπωσιακά visuals για τις καμπάνιες σας στα social media.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="section-header">ΤΙ ΛΕΝΕ ΟΙ ΠΕΛΑΤΕΣ ΜΟΥ</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-gray-800 p-8 rounded-lg shadow-lg">
+            <div class="bg-gray-700 p-6 rounded shadow-md border border-gray-600">
+                <p class="italic text-gray-300 mb-2">"Ο [Όνομα Σχεδιαστή] έφερε μια φρέσκια και δυναμική οπτική στο branding μας. Η συνεργασία ήταν άψογη και το αποτέλεσμα ξεπέρασε κάθε προσδοκία!"</p>
+                <p class="font-bold text-arcade-yellow">- Όνομα Πελάτη 1, Εταιρεία A</p>
+            </div>
+            <div class="bg-gray-700 p-6 rounded shadow-md border border-gray-600">
+                <p class="italic text-gray-300 mb-2">"Είμαστε ενθουσιασμένοι με τον σχεδιασμό της εφαρμογής μας. Η προσοχή στη λεπτομέρεια και η κατανόηση του retro vibe ήταν απίστευτη."</p>
+                <p class="font-bold text-arcade-pink">- Όνομα Πελάτη 2, Εταιρεία B</p>
+            </div>
+            <div class="bg-gray-700 p-6 rounded shadow-md border border-gray-600 md:col-span-2">
+                <p class="italic text-gray-300 mb-2">"Άμεση επικοινωνία και εκπληκτική δημιουργικότητα. Τα γραφικά για τα social media μας απογειώθηκαν!"</p>
+                <p class="font-bold text-arcade-blue">- Όνομα Πελάτη 3, Εταιρεία C</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header">ΕΠΙΚΟΙΝΩΝΙΑ</div>
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center">
+            <p class="text-lg leading-relaxed mb-6">
+                Είστε έτοιμοι για το επόμενο σας project; Επικοινωνήστε μαζί μου!
+            </p>
+            <div class="space-y-4 mb-8">
+                <p class="text-xl font-bold text-arcade-yellow flex items-center justify-center">
+                    <span class="mr-2">📧</span> email@example.com
+                </p>
+                <p class="text-xl font-bold text-arcade-pink flex items-center justify-center">
+                    <span class="mr-2">📞</span> +30 210-XXX-XXXX
+                </p>
+            </div>
+            <div class="flex justify-center space-x-6">
+                <a href="#" target="_blank" aria-label="Facebook">
+                    <svg class="social-icon w-10 h-10 fill-current text-gray-400 hover:text-white transition-colors duration-200" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.502 1.493-3.88 3.776-3.88 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.247 0-1.64.776-1.64 1.579V12h2.77l-.443 2.89h-2.327v6.987C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                </a>
+                <a href="#" target="_blank" aria-label="Twitter">
+                    <svg class="social-icon w-10 h-10 fill-current text-gray-400 hover:text-white transition-colors duration-200" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-1.051.617-2.217 1.06-3.464 1.293a4.935 4.935 0 00-8.384 4.482c-4.1-.21-7.75-2.17-10.2-5.47a4.93 4.93 0 00-1.61 2.47c0 1.71.87 3.21 2.188 4.093a4.904 4.904 0 01-2.228-.616v.061a4.945 4.945 0 003.966 4.832 4.91 4.91 0 01-2.228.084 4.935 4.935 0 004.604 3.42c-3.768 2.956-8.506 4.716-13.682 4.716-.889 0-1.762-.052-2.606-.154a13.908 13.908 0 007.548 2.212c9.052 0 13.99-7.496 13.99-13.985 0-.21 0-.42-.015-.63A10.007 10.007 0 0024 4.59z"/></svg>
+                </a>
+                <a href="#" target="_blank" aria-label="Instagram">
+                    <svg class="social-icon w-10 h-10 fill-current text-gray-400 hover:text-white transition-colors duration-200" viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.334.015 7.053.072 5.771.132 4.954.347 4.22.666c-.752.327-1.442.843-2.043 1.443-.6.6-1.117 1.29-1.443 2.043-.329.736-.543 1.55-.607 2.83-.058 1.28-.072 1.684-.072 4.953s.015 3.673.072 4.953c.06 1.28.275 2.1.607 2.83.327.752.843 1.442 1.443 2.043.6.6 1.29 1.117 2.043 1.443.736.329 1.55.543 2.83.607 1.28.058 1.684.072 4.953.072s3.673-.015 4.953-.072c1.28-.06 2.1-.275 2.83-.607.752-.327 1.442-.843 2.043-1.443.6-.6 1.117-1.29 1.443-2.043.329-.736.543-1.55.607-2.83-.058 1.28-.072 1.684-.072 4.953s-.015-3.673-.072-4.953c-.06-1.28-.275-2.1-.607-2.83-.327-.752-.843-1.442-1.443-2.043-.6-.6-1.29-1.117-2.043-1.443-.736-.329-1.55-.543-2.83-.607C15.673.015 15.26 0 12 0zm0 2.16c3.2 0 3.585.016 4.85.071 1.17.055 1.838.245 2.22.404.484.195.843.468 1.15.778.308.31.581.669.778 1.15.16.382.35.93.404 2.22.056 1.265.07 1.65.07 4.85s-.014 3.585-.07 4.85c-.054 1.17-.244 1.838-.404 2.22-.195.484-.468.843-.778 1.15-.31.308-.669.581-1.15-.778-.382.16-.93-.35-2.22-.404-1.265-.056-1.65-.07-4.85-.07s-3.585-.014-4.85-.07c-1.17-.054-1.838-.244-2.22-.404-.484-.195-.843-.468-1.15-.778-.308-.31-.581-.669-.778-1.15-.16-.382-.35-.93-.404-2.22-.056-1.265-.07-1.65-.07-4.85s.014-3.585.07-4.85c.054 1.17.244-1.838.404-2.22.195-.484.468-.843.778-1.15.31-.308.669-.581 1.15-.778.382-.16.93-.35 2.22-.404 1.265-.056 1.65-.07 4.85-.07zm0 3.672c-3.179 0-5.45 2.272-5.45 5.45s2.271 5.45 5.45 5.45 5.45-2.272 5.45-5.45-2.271-5.45-5.45-5.45zm0 9.096c-2.027 0-3.672-1.645-3.672-3.672s1.645-3.672 3.672-3.672 3.672 1.645 3.672 3.672-1.645 3.672-3.672 3.672zm5.09-8.498a1.325 1.325 0 00-.916-1.325 1.325 1.325 0 00-1.325.916 1.325 1.325 0 00.916 1.325c.348.118.736.08 1.05-.116a1.325 1.325 0 00.275-.85c.002-.124.002-.249 0-.374z"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8">
+        <p>&copy; 2025 PIXEL PULSE CREATIVE. All rights reserved. <span class="text-yellow-400">GAME OVER.</span></p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
